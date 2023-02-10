@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Arena PLM Connector</title>
+		<meta http-equiv="Cache-Control" content="no-store" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/papaparse@5.2.0/papaparse.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.0/jszip.min.js"></script>
+		<script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js" type="text/javascript"></script>
+		<script src="../js/arenaPLMConnector.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container container-table">
+			<div class="row vertical-center-row">
+				<div class="text-center col-md-4 col-md-offset-4">
+					<br><br>
+					<image style="width: 200px;" src="https://app.bom.com/localizable/images/arena-solutions-login.png"/>
+					<h2>Arena PLM REST API</h2>
+					<h4>Data Extract Service</h4>
+					<table style="text-align:right; margin-vertical: 0px">
+						<tr>
+							<td><label for="arena_api_url_label" style="padding: 10px">Select your Arena Instance:  </label></td>
+							<td><select id="arena_api_url" style="width: 100%">
+									<option value="https://api.arenasolutions.com/v1" selected>Arena - North America</option>
+									<option value="https://api.arenagov.com/v1">Arena - US GovCloud</option>
+									<option value="https://api.europe.arenaplm.com/v1">Arena - Europe</option>
+								</select>
+							</td>
+						</tr>
+						<br><br>
+						<tr>
+							<td><label for="arena_email" style="padding: 10px">API User Email:  </label></td>
+							<td><input type="text" id="arena_email" name="arena_email" style= "width: 300px;"><br><br></td>
+						</tr>
+						<br><br>
+						<tr>
+							<td><label for="arena_password" style="padding: 10px">API User Password:  </label></td>
+							<td><input type="password" id="arena_password" name="arena_password" style= "width: 300px;"><br><br></td>
+						</tr>
+						<br><br>
+						<tr>
+							<td><label for="arena_workspace_id" style="padding: 10px">Arena Workspace ID:  </label></td>
+							<td><input type="number" id="arena_workspace_id" name="arena_workspace_id" style= "width: 300px;"><br><br></td>
+						</tr>
+					</table>
+					<button type= "button" id= "submitButton" class= "btn btn-success" style= "margin: 10px;" onclick="_submitDataToTableau()">Download Arena Data</button>
+					<div class="error"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
