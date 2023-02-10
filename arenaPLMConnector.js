@@ -12,7 +12,7 @@
 // let savedArenaDESetupGUID;
 // let savedArenaDELatestRunGUID;
 // let savedArenaDELatestRunFileGUID;
-let savedArenaDELatestRunFileContents;
+// let savedArenaDELatestRunFileContents;
 let myConnector = tableau.makeConnector();
 
 // Populate inputs entered from Interactive Phase (HTML page)
@@ -111,31 +111,31 @@ myConnector.getSchema = async function(schemaCallback) {
 myConnector.getData = async function(table, doneCallback) {
     // console.log("Getting getData");
 
-    // let conData = JSON.parse(tableau.connectionData);
-    // let arenaUrl = conData.arenaUrl;
-    // let arenaEmail = conData.arenaEmail;
-    // let arenaPassword = tableau.password;
-    // let arenaWorkspaceID = conData.arenaWorkspaceID;
+    let conData = JSON.parse(tableau.connectionData);
+    let arenaUrl = conData.arenaUrl;
+    let arenaEmail = conData.arenaEmail;
+    let arenaPassword = tableau.password;
+    let arenaWorkspaceID = conData.arenaWorkspaceID;
 
-    // // get Arena Login Session ID
-    // let arenaSessionID = savedArenaSessionID || 
-    // (await _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, arenaWorkspaceID ));
+    // get Arena Login Session ID
+    let arenaSessionID = // savedArenaSessionID || 
+    (await _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, arenaWorkspaceID ));
 
-    // // get Arena Data Extract Setup GUID
-    // let arenaDESetupGUID = savedArenaDESetupGUID || 
-    // (await _getDataExtractSetupGUID( arenaUrl, arenaSessionID ));
+    // get Arena Data Extract Setup GUID
+    let arenaDESetupGUID = // savedArenaDESetupGUID || 
+    (await _getDataExtractSetupGUID( arenaUrl, arenaSessionID ));
 
-    // // get Arena Data Extract Latest Run GUID
-    // let arenaDELatestRunGUID = savedArenaDELatestRunGUID || 
-    // (await _getDataExtractLatestRunGUID( arenaUrl, arenaSessionID, arenaDESetupGUID ));
+    // get Arena Data Extract Latest Run GUID
+    let arenaDELatestRunGUID = // savedArenaDELatestRunGUID || 
+    (await _getDataExtractLatestRunGUID( arenaUrl, arenaSessionID, arenaDESetupGUID ));
 
-    // // get Arena Data Extract Latest Run File GUID
-    // let arenaDELatestRunFileGUID = savedArenaDELatestRunFileGUID || 
-    // (await _getDataExtractLatestRunFileGUID( arenaUrl, arenaSessionID, arenaDESetupGUID, arenaDELatestRunGUID ));
+    // get Arena Data Extract Latest Run File GUID
+    let arenaDELatestRunFileGUID = // savedArenaDELatestRunFileGUID || 
+    (await _getDataExtractLatestRunFileGUID( arenaUrl, arenaSessionID, arenaDESetupGUID, arenaDELatestRunGUID ));
 
     // get Arena Data Extract Latest Run File Contents
-    let arenaDELatestRunFileContents = savedArenaDELatestRunFileContents; //|| 
-    // (await _getDataExtractLatestRunFileContents( arenaUrl, arenaSessionID, arenaDESetupGUID, arenaDELatestRunGUID, arenaDELatestRunFileGUID ));
+    let arenaDELatestRunFileContents = // savedArenaDELatestRunFileContents; //|| 
+     (await _getDataExtractLatestRunFileContents( arenaUrl, arenaSessionID, arenaDESetupGUID, arenaDELatestRunGUID, arenaDELatestRunFileGUID ));
 
     // convert to ZIP and unpack CSV files
     const zipFile = new File([arenaDELatestRunFileContents], 'arena_data.zip', {
@@ -477,8 +477,9 @@ async function _getDataExtractLatestRunFileContents( arenaUrl, arenaSessionID, a
         return;
     }
 
-    savedArenaDELatestRunFileContents = result;
-    return savedArenaDELatestRunFileContents;
+    // savedArenaDELatestRunFileContents = result;
+    // return savedArenaDELatestRunFileContents;
+    return result;
 }
 
 // Sanitizes headers so they work in Tableau without duplicates
