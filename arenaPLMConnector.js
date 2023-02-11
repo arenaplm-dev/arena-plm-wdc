@@ -102,6 +102,14 @@ myConnector.getSchema = async function(schemaCallback) {
             });            
         }
     };  
+
+    tableau.connectionData = JSON.stringify({
+        arenaUrl: arenaUrl,
+        arenaSessionID: arenaSessionID,
+        arenaDESetupGUID: arenaDESetupGUID,
+        arenaDELatestRunGUID: arenaDELatestRunGUID,
+        arenaDELatestRunFileGUID: arenaDELatestRunFileGUID
+    });
       
     // console.log("ArenaDETableSchema: " + JSON.stringify(ArenaDETableSchema));
     schemaCallback(ArenaDETableSchema);
@@ -113,25 +121,27 @@ myConnector.getData = async function(table, doneCallback) {
 
     let conData = JSON.parse(tableau.connectionData);
     let arenaUrl = conData.arenaUrl;
-    let arenaEmail = conData.arenaEmail;
-    let arenaPassword = tableau.password;
-    let arenaWorkspaceID = conData.arenaWorkspaceID;
+    let arenaSessionID = conData.arenaSessionID;
+    let arenaDESetupGUID = conData.arenaDESetupGUID;
+    let arenaDELatestRunGUID = conData.arenaDELatestRunGUID;
+    let arenaDELatestRunFileGUID = conData.arenaDELatestRunFileGUID;
 
-    // get Arena Login Session ID
-    let arenaSessionID = // savedArenaSessionID || 
-    (await _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, arenaWorkspaceID ));
 
-    // get Arena Data Extract Setup GUID
-    let arenaDESetupGUID = // savedArenaDESetupGUID || 
-    (await _getDataExtractSetupGUID( arenaUrl, arenaSessionID ));
+    // // get Arena Login Session ID
+    // let arenaSessionID = // savedArenaSessionID || 
+    // (await _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, arenaWorkspaceID ));
 
-    // get Arena Data Extract Latest Run GUID
-    let arenaDELatestRunGUID = // savedArenaDELatestRunGUID || 
-    (await _getDataExtractLatestRunGUID( arenaUrl, arenaSessionID, arenaDESetupGUID ));
+    // // get Arena Data Extract Setup GUID
+    // let arenaDESetupGUID = // savedArenaDESetupGUID || 
+    // (await _getDataExtractSetupGUID( arenaUrl, arenaSessionID ));
 
-    // get Arena Data Extract Latest Run File GUID
-    let arenaDELatestRunFileGUID = // savedArenaDELatestRunFileGUID || 
-    (await _getDataExtractLatestRunFileGUID( arenaUrl, arenaSessionID, arenaDESetupGUID, arenaDELatestRunGUID ));
+    // // get Arena Data Extract Latest Run GUID
+    // let arenaDELatestRunGUID = // savedArenaDELatestRunGUID || 
+    // (await _getDataExtractLatestRunGUID( arenaUrl, arenaSessionID, arenaDESetupGUID ));
+
+    // // get Arena Data Extract Latest Run File GUID
+    // let arenaDELatestRunFileGUID = // savedArenaDELatestRunFileGUID || 
+    // (await _getDataExtractLatestRunFileGUID( arenaUrl, arenaSessionID, arenaDESetupGUID, arenaDELatestRunGUID ));
 
     // get Arena Data Extract Latest Run File Contents
     let arenaDELatestRunFileContents = // savedArenaDELatestRunFileContents; //|| 
