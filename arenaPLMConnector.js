@@ -197,13 +197,13 @@ async function _submitDataToTableau() {
     if (!arenaPassword) return _error("No Arena Password entered.");
     if (!arenaWorkspaceID) return _error("No Arena Workspace ID entered.");
 
-    const urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|ftp:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
-    const result = arenaUrl.match(urlRegex);
+//     const urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|ftp:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
+//     const result = arenaUrl.match(urlRegex);
    
-    if (result === null) {
-        _error("WARNING: URL may not be valid...");
-     await new Promise(resolve => setTimeout(resolve, 2000));
-    }
+//     if (result === null) {
+//         _error("WARNING: URL may not be valid...");
+//      await new Promise(resolve => setTimeout(resolve, 2000));
+//     }
 
     tableau.connectionData = JSON.stringify({
         arenaUrl,
