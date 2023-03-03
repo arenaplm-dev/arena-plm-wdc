@@ -25,8 +25,6 @@ myConnector.init = function(initCallback) {
     ) {
         const conData = JSON.parse(tableau.connectionData);
         $("#arena_api_url").val(conData.arena_api_url || "");
-        $("#arena_email").val(tableau.arena_email || "");
-        $("#arena_password").val(tableau.arena_password || "");
         $("#arena_workspace_id").val(tableau.arena_workspace_id || "");
     }
     initCallback();
@@ -36,7 +34,7 @@ myConnector.init = function(initCallback) {
 myConnector.getSchema = async function(schemaCallback) {
     let conData = JSON.parse(tableau.connectionData);
     let arenaUrl = conData.arenaUrl;
-    let arenaEmail = conData.arenaEmail;
+    let arenaEmail = tableau.username;
     let arenaPassword = tableau.password;
     let arenaWorkspaceID = conData.arenaWorkspaceID;
 
@@ -209,10 +207,10 @@ async function _submitDataToTableau() {
 
     tableau.connectionData = JSON.stringify({
         arenaUrl,
-        arenaEmail,
         arenaWorkspaceID
     });
     
+    tableau.username = arenaEmail;
     tableau.password = arenaPassword;
     tableau.submit();
 }
