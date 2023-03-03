@@ -17,6 +17,8 @@ let myConnector = tableau.makeConnector();
 
 // Populate inputs entered from Interactive Phase (HTML page)
 myConnector.init = function(initCallback) {
+    tableau.authType = tableau.authTypeEnum.custom;
+
     if (
         tableau.phase == tableau.phaseEnum.interactivePhase &&
         tableau.connectionData.length > 0
