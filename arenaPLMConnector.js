@@ -283,7 +283,7 @@ async function _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, are
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://arenaplm-dev.github.io"
+                "Origin": "https://arenaplm-dev.github.io"
             },
             body: JSON.stringify({
                 "email": arenaEmail,
@@ -331,7 +331,7 @@ async function _getDataExtractSetupGUID( arenaUrl, arenaSessionID ) {
             headers: {
                 "arena_session_id": arenaSessionID,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://arenaplm-dev.github.io"
+                "Origin": "https://arenaplm-dev.github.io"
             },
         }; 
 
@@ -375,7 +375,7 @@ async function _getDataExtractLatestRunGUID( arenaUrl, arenaSessionID, arenaDESe
             headers: {
                 "arena_session_id": arenaSessionID,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://arenaplm-dev.github.io"
+                "Origin": "https://arenaplm-dev.github.io"
             },
         }; 
 
@@ -419,7 +419,7 @@ async function _getDataExtractLatestRunFileGUID( arenaUrl, arenaSessionID, arena
             headers: {
                 "arena_session_id": arenaSessionID,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://arenaplm-dev.github.io"
+                "Origin": "https://arenaplm-dev.github.io"
             },
         }; 
 
@@ -463,7 +463,7 @@ async function _getDataExtractLatestRunFileContents( arenaUrl, arenaSessionID, a
             headers: {
                 "arena_session_id": arenaSessionID,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://arenaplm-dev.github.io"
+                "Origin": "https://arenaplm-dev.github.io"
             },
         }; 
 
