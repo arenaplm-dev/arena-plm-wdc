@@ -282,8 +282,7 @@ async function _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, are
         let options = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Origin": "bom.com"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 "email": arenaEmail,
@@ -330,8 +329,7 @@ async function _getDataExtractSetupGUID( arenaUrl, arenaSessionID ) {
             method: "GET",
             headers: {
                 "arena_session_id": arenaSessionID,
-                "Content-Type": "application/json",
-                "Origin": "bom.com"
+                "Content-Type": "application/json"
             },
         }; 
 
@@ -374,8 +372,7 @@ async function _getDataExtractLatestRunGUID( arenaUrl, arenaSessionID, arenaDESe
             method: "GET",
             headers: {
                 "arena_session_id": arenaSessionID,
-                "Content-Type": "application/json",
-                "Origin": "bom.com"
+                "Content-Type": "application/json"
             },
         }; 
 
@@ -418,8 +415,7 @@ async function _getDataExtractLatestRunFileGUID( arenaUrl, arenaSessionID, arena
             method: "GET",
             headers: {
                 "arena_session_id": arenaSessionID,
-                "Content-Type": "application/json",
-                "Origin": "bom.com"
+                "Content-Type": "application/json"
             },
         }; 
 
@@ -462,8 +458,7 @@ async function _getDataExtractLatestRunFileContents( arenaUrl, arenaSessionID, a
             method: "GET",
             headers: {
                 "arena_session_id": arenaSessionID,
-                "Content-Type": "application/json",
-                "Origin": "bom.com"
+                "Content-Type": "application/json"
             },
         }; 
 
