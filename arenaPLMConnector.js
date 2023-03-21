@@ -293,6 +293,8 @@ async function _getArenaLoginSessionId( arenaUrl, arenaEmail, arenaPassword, are
 
         const response = await fetch(arenaUrl + "/login", options);
         result = await response.json();
+        
+        console.log("result: " + JSON.stringify(result));
     } catch (error) {
         console.log("Arena Error: "+ error);
 
